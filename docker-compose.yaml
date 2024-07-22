@@ -26,3 +26,4 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     depends_on:
       - psql-db
+    command: ["sh", "build-and-run.sh"]
