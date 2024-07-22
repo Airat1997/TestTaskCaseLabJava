@@ -19,6 +19,9 @@ public class File64 {
     @Column(name = "description")
     private String description;
 
+    public File64() {
+    }
+
     public File64(UUID id, String title, Date creationDate, String description) {
         this.id = id;
         this.title = title;
