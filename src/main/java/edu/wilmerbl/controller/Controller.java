@@ -2,6 +2,7 @@ package edu.wilmerbl.controller;
 
 import edu.wilmerbl.models.File64;
 import edu.wilmerbl.repository.FileRepository;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +28,14 @@ public class Controller {
     public ResponseEntity<File64> getProductById(@PathVariable("id") File64 file64) {
         return new ResponseEntity<>(file64, HttpStatus.OK);
     }
-
-    @PostMapping
-    ResponseEntity<File64> postFile64(@RequestBody File64 file64) {
-        return new ResponseEntity<>(fileRepository.save(file64), HttpStatus.CREATED);
+    @GetMapping
+    public ResponseEntity<Iterable<File64>> getFiles() {
+        return new ResponseEntity<>(fileRepository.findAll(), HttpStatus.OK);
     }
+    @PostMapping
+    ResponseEntity<UUID> postFile64(@RequestBody File64 file64) {
+        fileRepository.save(file64);
+        return new ResponseEntity<>(file64.getId(), HttpStatus.CREATED);
+    }
+
 }
