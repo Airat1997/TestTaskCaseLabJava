@@ -63,5 +63,13 @@ public class File64 {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getFileContent() {
+        return fileContent;
+    }
+
+    public void setFileContent(String fileContent) {
+        this.fileContent = fileContent;
+    }
 }
 
