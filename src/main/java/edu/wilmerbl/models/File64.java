@@ -13,8 +13,7 @@ public class File64 {
     @Column(name = "id")
     @GeneratedValue(generator = "UUID")
     private UUID id;
-    @Lob
-    @Column(name = "file_content")
+    @Column(name = "file_content", columnDefinition = "TEXT")
     private String fileContent;
     @Column(name = "title", length = 256)
     private String title;
